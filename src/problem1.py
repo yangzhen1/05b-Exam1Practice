@@ -336,12 +336,12 @@ def run_test_problem1c():
 
 
 def problem1c(n):
-    total = 0
+    total = 1
     for k in range(n - 1):
         if is_prime(2 + k):
-            apple = sum_of_digits(2 + k)
-            total = total + apple
-    return total
+            total = total * (2 + k)
+    apple = sum_of_digits(total)
+    return apple
 
     """
     What comes in:  An integer n >= 2.
@@ -367,7 +367,7 @@ def problem1c(n):
            and the sum of the digits in 223092870 is 33.
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
