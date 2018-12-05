@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Zhen Yang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -74,6 +74,22 @@ def run_test_problem2a():
 
 
 def problem2a(circle, rectangle, window):
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    line = rg.Line(rectangle.get_upper_right_corner(), rectangle.get_lower_left_corner())
+    line.arrow = None
+    # arrow zmgao
+    line.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    window.render()
+    circle.fill_color = rectangle.outline_color
+    window.render()
+
+
     """
     See   problem2a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -145,6 +161,20 @@ def run_test_problem2b():
 
 
 def problem2b(rect, n, delta, win):
+    rect.attach_to(win)
+    rect.get_center()
+    lowleftx = rect.get_lower_left_corner().x
+    lowlefty = rect.get_lower_left_corner().y
+    highheix = rect.get_upper_right_corner().x
+    highheiy = rect.get_upper_right_corner().y
+    for k in range(n):
+        rectangle = rg.Rectangle(rg.Point(lowleftx - delta*k, lowlefty + delta*k), rg.Point(highheix + delta*k, highheiy - delta*k))
+        rectangle.attach_to(win)
+    win.render()
+
+
+
+
     """
     See   problem2b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -174,7 +204,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
